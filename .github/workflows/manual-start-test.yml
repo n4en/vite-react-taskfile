@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       test_type:
-        description: 'Choose which test to execute'
+        description: "Choose which test to execute"
         required: true
         type: choice
         options:
