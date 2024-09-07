@@ -25,6 +25,8 @@ jobs:
         run: npm install -g pnpm
       - name: Install dependencies
         run: pnpm install
+      - name: Install Playwright browsers
+        run: npx playwright install
       - name: Install Task
         uses: arduino/setup-task@v2
         with:
