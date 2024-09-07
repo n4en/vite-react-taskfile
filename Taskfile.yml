@@ -1,0 +1,30 @@
+version: '3'
+
+tasks:
+  test:
+    desc: "Run all tests"
+    cmds:
+      - task: unit
+      - task: integration
+      - task: smoke
+      - task: e2e
+
+  unit:
+    desc: "Run unit tests"
+    cmds:
+      - pnpm test:unit
+
+  integration:
+    desc: "Run integration tests"
+    cmds:
+      - pnpm test:integration
+
+  smoke:
+    desc: "Run smoke tests"
+    cmds:
+      - pnpm test:smoke
+
+  e2e:
+    desc: "Run end-to-end tests"
+    cmds:
+      - pnpm test:e2e
