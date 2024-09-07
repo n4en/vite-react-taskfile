@@ -31,3 +31,7 @@ jobs:
           version: 3.x
       - name: Run tests
         run: task test
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

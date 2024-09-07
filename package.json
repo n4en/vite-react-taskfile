@@ -7,9 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "test:unit": "jest tests/unit",
-    "test:integration": "jest tests/integration",
-    "test:smoke": "jest tests/smoke",
+    "test:unit": "jest tests/unit --coverage",
+    "test:integration": "jest tests/integration --coverage",
+    "test:smoke": "jest tests/smoke --coverage",
     "preview": "vite preview",
     "test:e2e": "playwright test tests/e2e"
   },
