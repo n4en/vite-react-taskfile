@@ -1,0 +1,40 @@
+name: Manual Test Runner
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_type:
+        description: 'Choose which test to execute'
+        required: true
+        type: choice
+        options:
+          - unit
+          - integration
+          - smoke
+          - e2e
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install pnpm
+        run: npm install -g pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Install Task
+        uses: arduino/setup-task@v2
+        with:
+          version: 3.x
+      - name: Run selected test
+        run: task ${{ github.event.inputs.test_type }}
