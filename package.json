@@ -7,9 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "test:unit": "jest tests/unit --coverage --reporters=jest-junit",
-    "test:integration": "jest tests/integration --coverage --reporters=jest-junit",
-    "test:smoke": "jest tests/smoke --coverage --reporters=jest-junit",
+    "test:unit": "TEST_TYPE=unit jest tests/unit",
+    "test:integration": "TEST_TYPE=integration jest tests/integration",
+    "test:smoke": "TEST_TYPE=smoke jest tests/smoke",
     "preview": "vite preview",
     "test:e2e": "playwright test tests/e2e",
     "prepare": "husky"

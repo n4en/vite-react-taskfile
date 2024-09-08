@@ -9,4 +9,16 @@ export default {
     "\\.(css|less|sass|scss)$": "identity-obj-proxy",
     "^.+\\.svg$": "jest-transformer-svg",
   },
+  collectCoverage: true,
+  coverageDirectory: `coverage/${process.env.TEST_TYPE || "default"}`,
+  reporters: [
+    "default",
+    [
+      "jest-junit",
+      {
+        outputDirectory: "./test-results",
+        outputName: `${process.env.TEST_TYPE || "default"}-results.xml`,
+      },
+    ],
+  ],
 };

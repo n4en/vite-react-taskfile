@@ -45,5 +45,5 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Push result to Testspace server
         run: |
-          testspace ./results/*.xml coverage.xml
+          testspace ./test-results/*.xml coverage/*/clover.xml
         if: always()
