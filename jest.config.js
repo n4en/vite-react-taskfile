@@ -16,7 +16,7 @@ export default {
     [
       "jest-junit",
       {
-        outputDirectory: "./test-results",
+        outputDirectory: "test-results",
         outputName: `${process.env.TEST_TYPE || "default"}-results.xml`,
       },
     ],
