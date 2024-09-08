@@ -29,29 +29,37 @@ jobs:
         uses: arduino/setup-task@v2
         with:
           version: 3.x
+
       - name: Install tree
         run: sudo apt-get install tree
-      - name: Create 'test-results' directory
-        run: mkdir -p test-results
+
+      - name: Create 'results' directory
+        run: mkdir -p results
+
       - uses: testspace-com/setup-testspace@v1
         with:
           domain: ${{ github.repository_owner }}
+
       - name: Run tests
         run: task test
+
       - name: Show directory tree
         run: tree -L 5 # Adjust the level of depth as needed
+
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage/*/clover.xml
+
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/test-results-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          directory: test-results
+          directory: results
+
       - name: Push result to Testspace server
         run: |
-          testspace test-results/*.xml coverage/*/clover.xml
+          testspace results/*.xml coverage/*/clover.xml
         if: always()
