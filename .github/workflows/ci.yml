@@ -31,6 +31,8 @@ jobs:
           version: 3.x
       - name: Install tree
         run: sudo apt-get install tree
+      - name: Create 'test-results' directory
+        run: mkdir -p test-results
       - uses: testspace-com/setup-testspace@v1
         with:
           domain: ${{ github.repository_owner }}

@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "test:unit": "TEST_TYPE=unit jest tests/unit",
+    "test:unit": "TEST_TYPE=unit jest tests/unit --verbose",
     "test:integration": "TEST_TYPE=integration jest tests/integration",
     "test:smoke": "TEST_TYPE=smoke jest tests/smoke",
     "preview": "vite preview",
