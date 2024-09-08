@@ -26,4 +26,10 @@ test.describe("App E2E Tests", () => {
     await expect(viteLink).toBeVisible();
     await expect(reactLink).toBeVisible();
   });
+
+  // Playwright Visual Regression Example
+  test("should visually match the homepage", async ({ page }) => {
+    await page.goto("/");
+    expect(await page.screenshot()).toMatchSnapshot("homepage.png");
+  });
 });

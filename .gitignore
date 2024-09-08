@@ -14,6 +14,7 @@ coverage
 test-results
 *.local
 results
+App.e2e.test.ts-snapshots
 
 # Editor directories and files
 .vscode/*
