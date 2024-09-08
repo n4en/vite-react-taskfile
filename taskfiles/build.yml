@@ -1,0 +1,12 @@
+version: "3"
+
+tasks:
+  build:
+    desc: "Run Vite build"
+    cmds:
+      - pnpm build
+
+  preview:
+    desc: "Run Vite preview"
+    cmds:
+      - pnpm preview

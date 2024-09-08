@@ -1,0 +1,18 @@
+version: "3"
+
+tasks:
+  setup:pnpm:
+    desc: "Install dependencies using pnpm"
+    cmds:
+      - npm install -g pnpm
+      - pnpm install
+
+  setup:playwright:
+    desc: "Install Playwright dependencies"
+    cmds:
+      - npx playwright install
+
+  setup:project:
+    desc: "Setup project"
+    cmds:
+      - task setup:pnpm
